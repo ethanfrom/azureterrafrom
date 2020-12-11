@@ -1,10 +1,18 @@
-# Configure the provider
-provider "azurerm" {
-    version = "=1.31.0"
+# Configure the Azure provider
+terraform {
+  required_providers {
+    azurerm = {
+      source = "hashicorp/azurerm"
+      version = ">= 2.26"
+    }
+  }
 }
 
-# Create a new resource group
+provider "azurerm" {
+  features {}
+}
+
 resource "azurerm_resource_group" "rg" {
-    name     = "myTFResourceGroup"
-    location = "eastus"
+  name     = "myTFResourceGroup"
+  location = "westus2"
 }
